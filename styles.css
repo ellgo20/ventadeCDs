@@ -1,0 +1,252 @@
+/* Estilos generales */
+
+body {
+  background-image: url('fondo%20body.jpg'); /* Asegúrate de que la ruta sea correcta */
+  background-size: cover; /* La imagen cubre toda la pantalla */
+  background-position: center; /* Centra la imagen */
+  background-attachment: fixed; /* La imagen se fija al fondo al hacer scroll */
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* Hace que el fondo cubra toda la altura de la ventana */
+}
+
+/* Animación de entrada desde la izquierda */
+@keyframes moverIzquierda {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Estilos para los encabezados */
+h2, h3 {
+  color: #FFF;
+  transition: color 0.3s ease, transform 0.3s ease;
+  animation: moverIzquierda 1s ease-out; /* Animación de deslizamiento desde la izquierda */
+}
+
+h2:hover, h3:hover {
+  color: yellow;
+  transform: scale(1.1); /* Aumenta el tamaño en un 10% */
+}
+
+/* Estilos para el contenedor principal */
+.container {
+  padding-top: 20px;
+  animation: moverIzquierda 1s ease-out; /* Animación de deslizamiento desde la izquierda */
+}
+
+/* Estilo para los resultados */
+.resultados p {
+  font-size: 18px;
+  margin: 5px 0;
+  background-color: rgba(248, 249, 250, 0.8); /* Fondo semitransparente para los resultados */
+  padding: 10px;
+  border-radius: 5px;
+  animation: moverIzquierda 1s ease-out; /* Animación de deslizamiento desde la izquierda */
+}
+
+/* Agregar espaciado y estilo a los botones */
+button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  animation: moverIzquierda 1s ease-out; /* Animación de deslizamiento desde la izquierda */
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilo para el contenedor del gráfico */
+#contenedor-grafico {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  animation: moverIzquierda 1s ease-out; /* Animación de deslizamiento desde la izquierda */
+}
+
+/* Ajustar el estilo del canvas */
+canvas {
+  border: 2px solid ; /* Borde blanco */
+  border-radius: 8px; /* Bordes redondeados */
+  background-color: rgba(0, 0, 0, 0.3); /* Fondo oscuro semitransparente */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+  animation: moverIzquierda 1s ease-out; /* Animación de deslizamiento desde la izquierda */
+}
+
+/* Asegura que los botones estén alineados correctamente */
+#calcular, #borrar {
+  width: 100%; /* Hacer que los botones ocupen todo el ancho de su contenedor */
+  max-width: 150px; /* Ajustar el tamaño máximo de los botones */
+  margin: 10px auto;
+  animation: moverIzquierda 1s ease-out; /* Animación de deslizamiento desde la izquierda */
+}
+
+#capa1 {
+  display: none; /* Inicialmente oculto */
+  position: fixed; /* Fijo en la parte superior */
+  top: -200px; /* Empezar fuera de la pantalla, para hacer el efecto de "bajar" */
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro semi-transparente */
+  color: white;
+  padding: 20px;
+  text-align: center;
+  z-index: 1000; /* Asegura que esté sobre otros elementos */
+  transition: top 0.5s ease-in-out; /* Transición para el efecto de deslizamiento */
+}
+
+.capa-flotante {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.capa-flotante button {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.capa-flotante button:hover {
+  background-color: #45a049;
+}
+
+.anuncio-flotante {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px;
+  z-index: 1000;
+  display: flex;
+  align-items: flex-start; /* Alinea el contenido a la parte superior */
+  justify-content: space-between;
+  background-color: transparent; /* Fondo transparente */
+  animation: moverIzquierda 1s ease-out; /* Animación de deslizamiento desde la izquierda */
+}
+
+.anuncio-flotante img {
+  max-width: 100%;
+}
+
+.cerrar-btn {
+
+  background-color: transparent; /* Fondo transparente */
+  color: white; /* Color del texto blanco para que sea visible */
+  border: none; /* Sin borde */
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  padding: 0; /* Sin padding */
+  font-size: 18px; /* Tamaño del texto ajustado */
+}
+
+.cerrar-btn:hover {
+  color: #d43f3f; /* Cambia el color del texto al pasar el ratón */
+}
+
+/* Contenedor del anuncio de inscripciones */
+.anuncio-inscripciones {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente */
+  color: white;
+  text-align: center;
+  z-index: 2000;
+  animation: moverIzquierdaDerecha 5s infinite alternate; /* Animación */
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Animación de izquierda a derecha */
+@keyframes moverIzquierdaDerecha {
+  from {
+    transform: translateX(-50%) translateY(-50%);
+  }
+  to {
+    transform: translateX(50%) translateY(-50%);
+  }
+}
+
+.anuncio-inscripciones img {
+  max-width: 100px; /* Ajusta el tamaño del logo */
+  margin-bottom: 10px;
+}
+
+.cerrar-inscripciones {
+  background-color: transparent; /* Botón transparente */
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.cerrar-inscripciones:hover {
+  color: #ff4c4c; /* Cambia a rojo al pasar el mouse */
+}
+/* Estilos para el anuncio flotante de Tecate */
+.anuncio-tecate {
+  position: fixed;
+  top: 50%; /* Inicialmente en el centro vertical */
+  left: 50%; /* Inicialmente en el centro horizontal */
+  transform: translate(-0%, -0%); /* Centrado */
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  color: yellow; /* Texto amarillo */
+  font-size: 20px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  z-index: 1000;
+  border-radius: 10px;
+  animation: moverAnuncio 6s ; /* Animación para mover el anuncio */
+}
+
+
+/* Estilo para la imagen dentro del anuncio */
+.anuncio-tecate img {
+  max-width: 400px; /* Ajusta el tamaño de la imagen */
+  margin-bottom: 10px; /* Espacio entre la imagen y el texto */
+}
+
+/* Animación de desplazamiento y desaparición */
+@keyframes moverAnuncio {
+  0% {
+    transform: translate(-50%, -50%) translateX(0);
+    opacity: 1;
+  }
+  33% {
+    transform: translate(-50%, -50%) translateX(200px); /* Mover a la derecha */
+    opacity: 1;
+  }
+  66% {
+    transform: translate(-90%, -90%) translateX(-200px); /* Mover a la izquierda */
+    opacity: 1;
+  }
+  100% {
+    opacity: 0; /* Desaparecer */
+	
+  }
+  display: none;
+  
+}
+
